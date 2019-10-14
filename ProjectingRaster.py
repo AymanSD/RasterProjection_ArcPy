@@ -1,6 +1,8 @@
 ## This code is utilised to project raster data 
-##
-##
+## Required Libraries: os, arcpy
+## Parameters: raster directory, output directory, Map Projection
+## Author: Ayman Altoum
+## Date:26. July. 2019
 
 import os
 import arcpy
