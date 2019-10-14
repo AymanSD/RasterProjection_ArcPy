@@ -1,3 +1,10 @@
+## This code is utilised to remove duplicate raster data 
+## Required Libraries: os, arcpy
+## Parameters: raster directory, raster extension
+## Author: Ayman Altoum
+## Date:26. July. 2019
+
+
 import os
 
 dir_name = r"C:\cc\sudanEra5Data1Tiff\in"
