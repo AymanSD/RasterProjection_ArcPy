@@ -1,11 +1,16 @@
+## This code is utilised to project raster data 
+##
+##
+
 import os
 import arcpy
 from arcpy import env
 
+# Defining Workspace:
 env.overwrite = True
-##env.workspace = r"C:\cc\sudanEra5Data1Tiff"
-##env.workspace = r"\\192.168.14.106\SudanWindAtlas2018\Sudan"
 env.workspace = r"D:\GIS\Landsat"
+
+# Obtaining a list of directories within the workspace
 folders = arcpy.ListWorkspaces("*","Folder")
 os.mkdir(r"D:\GIS\Landsat_Projected")
 
@@ -16,17 +21,9 @@ for folder in folders:
     createSubdir = os.mkdir(dirpath)                                # Creating the new directory
     outFolder = r"D:\GIS\Landsat_Projected" + "/" + rasterFolder    # Path for the output folder for each raster
     a = arcpy.ListRasters()
-##    print rasterFolder
-##    print outFolder
     
-    
+## Projecting Rasters:
     for b in a:
         c = b.split(".")[0]
-##        print folder
-##        print outFolder
-##        print b;
-##        print c
-        
-##        arcpy.ProjectRaster_management(b, folder + '/' + c + ".tif","32635") # UTM Zone35
         arcpy.ProjectRaster_management(b, outFolder + '/' + c + ".tif","3857")  # Web mercator      
 
